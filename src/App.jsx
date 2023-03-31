@@ -1,8 +1,7 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
 import PokemonCard from './components/PokemonCard'
+import NavBar from './components/NavBar'
 import PropTypes from "prop-types"
 
 
@@ -37,19 +36,11 @@ function App() {
     // States
     let [pokemonIndex, setPokemonIndex]=useState(0);
 
-    
-    const previousPokemonIndex =() => setPokemonIndex(pokemonIndex - 1);
-    const nextPokemonIndex =() => setPokemonIndex(pokemonIndex + 1);
-    
-
-    
-
 
     return (
         <><div>
           <PokemonCard pokemon={pokemonList[pokemonIndex]}/>
-          {pokemonIndex>0 ? <button onClick={previousPokemonIndex}> Previous </button> : null}
-          {pokemonIndex < pokemonList.length -1 ? <button onClick={nextPokemonIndex}> Next </button> : null}
+          <NavBar pokemons={pokemonList.length} pokemonIndex={pokemonIndex} setPokemonIndex={setPokemonIndex} />
         </div>
 
         </>
